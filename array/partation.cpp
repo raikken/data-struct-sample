@@ -13,36 +13,68 @@ int Array::partation(vecint& vecarr, int start, int end, int pivotIndex){
         return 0;
     }
     int pivotVal = vecarr[pivotIndex];
+    int startIndex  = start;
+    int endIndex = end;
+    int resultMidIndex = pivotIndex;
+    
     //1. exchange first and last element
-    while(start != end){
+    while(startIndex != endIndex){
         //start move first
-        while(start < end && vecarr[start] <= pivotVal) start++;
-        while(start < end && vecarr[end] >= pivotVal) end--;
+        while(startIndex < endIndex && vecarr[startIndex] <= pivotVal) startIndex++;
+        while(startIndex < endIndex && vecarr[endIndex] >= pivotVal) endIndex--;
 
-        if(start < end){
-            int tmp = vecarr[start];
-            vecarr[start] = vecarr[end];
-            vecarr[end] = tmp;
+        if(startIndex < endIndex){
+            int tmp = vecarr[startIndex];
+            vecarr[startIndex] = vecarr[endIndex];
+            vecarr[endIndex] = tmp;
         }
     }
     //2. move intermediate element
     //because we move "start" first, when "start" meet "end", the start value may greater than pivotVal
-    if(start < pivotIndex){
+    //note: if "endIndex" equals "end", the "endValue" may be smaller than pivotVal. small value should be on the left 
+    if(startIndex < pivotIndex || (endIndex == end && vecarr[startIndex] < pivotVal)){
         //when "start" on the left side of pivotVal, we should exchange "pivotVal" and "start" 
-        vecarr[pivotIndex] = vecarr[start];
-        vecarr[start] = pivotVal;
-    } else if(start > pivotIndex){
+        vecarr[pivotIndex] = vecarr[startIndex];
+        vecarr[startIndex] = pivotVal;
+        resultMidIndex = startIndex;
+    } else if(startIndex > pivotIndex && (startIndex-1) != pivotIndex) {
         //when "start" on the right side of pivotVal, we should exchange "pivotVal" and "start-1"
         //because the "start" greater than "pivotVal", the "pivotVal" one the left zone, the left zone only contains small element
         //the "start-1" value less than "pivotVal", so we should exchange these
-        vecarr[pivotIndex] = vecarr[start-1];
-        vecarr[start-1] = pivotVal;
+        vecarr[pivotIndex] = vecarr[startIndex-1];
+        vecarr[startIndex-1] = pivotVal;
+        resultMidIndex = startIndex-1;
     }
 
-    return start;
+    return resultMidIndex;
 }
 
 
+vecint Array::findMiniList(vecint& vecarr,int nth){
+    vecint vecresult;
+    if(!vecarr.size()){
+        return vecresult;
+    }
 
+    int start = 0;
+    int len = vecarr.size();
+    int end = len - 1;
+    int needIndex = nth - 1;
+    int resultIndex = Array::partation(vecarr, start, end, needIndex);
+
+    while (needIndex != resultIndex) {
+        if (needIndex > resultIndex) {
+            start += 1;
+        } else {
+            end -= 1;
+        }
+        resultIndex = Array::partation(vecarr, start, end, needIndex);
+    }
+
+    for(int i=0; i< nth; i++){
+        vecresult.push_back(vecarr.at(i));
+    }
+    return vecresult;
+}
 
 

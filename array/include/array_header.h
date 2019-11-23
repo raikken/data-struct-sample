@@ -6,20 +6,14 @@
 * @brief
 **/
 #include "base_method.h"
-
-
-
-#ifndef ARRAY_H__
-#define ARRAY_H__
 class Array{
 public:
     //partation算法
     static int partation(vecint& vecarr, int start, int end, int midIndex);
 
-    static int findMedian(vecint* vecintptr); 
-
+    static vecint findMiniList(vecint& vecarr,int nth);
 };
 
-#endif
+
 
 
