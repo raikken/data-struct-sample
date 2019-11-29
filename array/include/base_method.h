@@ -5,13 +5,10 @@
 * @date 2019-11-16 17:17:29
 * @brief
 **/
-
-#ifndef ARRAY_BASEMETHOD__
-#define ARRAY_BASEMETHOD__
-
 #include<iostream>
 #include<vector>
 #include<string>
+#include<algorithm>
 using namespace std;
 using vecint = vector<int>;
 using vecintiter = vector<int>::iterator;
@@ -22,6 +19,9 @@ void swap(int a, int b, vecint* vecintptr);
 //打印数组
 void printArr(vecint* vecarr);
 
+//heapify
+void heapify(vecint& vecarr, int topIndex);
 
-#endif
+
+
 

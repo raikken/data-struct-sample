@@ -12,6 +12,18 @@ public:
     static int partation(vecint& vecarr, int start, int end, int midIndex);
 
     static vecint findMiniList(vecint& vecarr,int nth);
+
+    //buildMaxHeap
+    static void buildMaxHeap(vecint &vecarr);
+
+    //insert for heap
+    void insertForHeap(int num);
+    //find median
+    double findMedian();
+
+    //最大堆
+    vecint minHeap;
+    vecint maxHeap;
 };
 
 
