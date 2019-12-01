@@ -34,3 +34,14 @@ void printArr(vecint* vecintptr){
 }
 
 
+vecint slice(vecint* vecarr, int a, int b) {
+    vecint vecintarr;
+
+    for(int tmp=a; tmp <= b; tmp ++){
+        vecintarr.push_back(vecarr->at(tmp));
+    }
+
+    return vecintarr;
+}
+
+

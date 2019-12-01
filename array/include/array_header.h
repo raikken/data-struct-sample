@@ -8,18 +8,21 @@
 #include "base_method.h"
 class Array{
 public:
-    //partation算法
+    //partation
     static int partation(vecint& vecarr, int start, int end, int midIndex);
-
     static vecint findMiniList(vecint& vecarr,int nth);
 
     //buildMaxHeap
     static void buildMaxHeap(vecint &vecarr);
-
     //insert for heap
     void insertForHeap(int num);
     //find median
     double findMedian();
+
+    
+    //merge
+    static vecint mergeSort(vecint& vecarr);
+
 
     //最大堆
     vecint minHeap;

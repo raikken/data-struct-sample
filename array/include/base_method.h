@@ -22,6 +22,6 @@ void printArr(vecint* vecarr);
 //heapify
 void heapify(vecint& vecarr, int topIndex);
 
-
+vecint slice(vecint* vecarr, int a, int b);
 
 
