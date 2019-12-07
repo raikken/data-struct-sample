@@ -7,14 +7,36 @@
 **/
 #include "array_header.h"
 
+
+
 int main(){
 
-    vecint vecarr = {1,6,9,5,4};
-    cout << "Origin arr: " << endl;
-    printArr(&vecarr);
-    int b = Array::partation(vecarr, 0, 4, 1);
-    cout << "After Rank, midIndex: " << b << endl;
-    printArr(&vecarr);
+    vecint vecarr = {1, 2, 5, 9, 6, 7};
+
+    vecint vecarr1 = {1,2,5,9,4,7};
+    cout << "origin Arr: ";
+    printArr(&vecarr1);
+
+    int midIndex = Array::partition(vecarr1, 0, vecarr1.size(), 2);
+    cout << "after partition: ";
+    printArr(&vecarr1);
     
+    
+    Array::buildMaxHeap(vecarr1);
+    printArr(&vecarr1);
+
+    Array* arrObj = new Array();
+    for(int i=0; i< vecarr.size(); i++){
+        arrObj->insertForHeap(vecarr.at(i));
+    }
+
+    double md = arrObj->findMedian();
+    cout << "median: " << md << endl;
+    
+    cout << "##################" << endl; 
+    vecint vectmp = {2,3};
+    vecint vecMergeResultArr = Array::mergeSort(vecarr);
+    cout << "after merge result arr: " << endl;
+    printArr(&vecMergeResultArr);
     return 0;
 }

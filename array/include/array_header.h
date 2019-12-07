@@ -9,7 +9,7 @@
 class Array{
 public:
     //partation
-    static int partation(vecint& vecarr, int start, int end, int midIndex);
+    static int partition(vecint& vecarr, int start, int end, int midIndex);
     static vecint findMiniList(vecint& vecarr,int nth);
 
     //buildMaxHeap
