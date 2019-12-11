@@ -24,9 +24,9 @@ class LinkedNode{
     public:
         int _data;
         LinkedNode* _next;
-        LinkedNode* _tmp;
+        LinkedNode* tmp;
         LinkedNode* _other;
-        
+        LinkedNode(){}; 
         LinkedNode(int data):_data(data),_next(nullptr),_other(nullptr){};
 
         LinkedNode(const LinkedNode& obj);

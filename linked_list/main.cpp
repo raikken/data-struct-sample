@@ -32,6 +32,14 @@ int main() {
     complexHead1->setOther(complexHead1->getNext()->getNext());
 
     LinkedNode* copyPtr = LinkedNode::complexCopy(complexHead1);
+    
+    
+    LinkedNode* tmpPtr = new LinkedNode();
+    tmpPtr->tmp = headptr;
+    bool result = tmpPtr->checkPalindrome(headptr);
+
+    cout << "is palidrome: " << result << endl;
+    
     return 0;
 }
 

@@ -35,9 +35,9 @@ bool LinkedNode::checkPalindrome(LinkedNode* nodeptr) {
     }
 
     bool result = true;
-    result = checkPalindrome(nodeptr->getNext()) & (nodeptr->getData() == this->_tmp->getData());
+    result = checkPalindrome(nodeptr->getNext()) & (nodeptr->getData() == this->tmp->getData());
 
-    this->_tmp = this->_tmp->getNext();
+    this->tmp = this->tmp->getNext();
 
     return result;
 }
