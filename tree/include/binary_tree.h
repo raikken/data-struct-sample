@@ -5,11 +5,11 @@
 * @date 2019-11-16 17:16:52
 * @brief
 **/
+#include "base_method.h"
 
 #ifndef BINARY_TREE_H__
 #define BINARY_TREE_H__
 
-#include "base_method.h"
 
 class NodeElem{
     public:
@@ -29,12 +29,11 @@ class BinaryTree{
 
         static vecint* preOrderArr;
         static vecint* inOrderArr;
+
+        static NodeElem* buildByOrder(int* preorderStart, int* preorderEnd, int* inorderStart, int* inorderEnd);
+
 };
 
-//vecint vecstaticarr = {};
-//vecint* BinaryTree::orderArr = &vecstaticarr;
-//vecint vecarr = {};
-//vecint* BinaryTree::orderArr = &vecarr;
 
 #endif
 

@@ -33,17 +33,6 @@ void printArr(vecint* vecintptr){
     cout << tmp << endl;
 }
 
-/*
-vecint slice(vecint* vecarr, int a, int b) {
-    vecint vecintarr;
-
-    for(int tmp=a; tmp <= b; tmp ++){
-        vecintarr.push_back(vecarr->at(tmp));
-    }
-
-    return vecintarr;
-}
-*/
 vecint* arrayMerge(vecint* vecarr1, vecint* vecarr2) {
     if (vecarr1 && !vecarr2) {
         return vecarr1;
@@ -58,5 +47,22 @@ vecint* arrayMerge(vecint* vecarr1, vecint* vecarr2) {
     }
     return vecarr1;
 }
+
+
+int* findIndex(int* startIndex, int* endIndex, int val){
+    if (startIndex == endIndex && *startIndex == val) {
+        return startIndex;
+    }
+    
+    while(startIndex <= endIndex){
+        if(*startIndex == val){
+            return startIndex;
+        }
+        startIndex++;
+    }
+
+    return nullptr;
+}
+
 
 

@@ -10,26 +10,23 @@
 int main(){
     vecint vecarr = {0,1,2,3,4,5,6,7,8,9};
     NodeElem* nodePtr = BinaryTree::build(&vecarr);
-    
-    cout << nodePtr->val << endl;
-    cout << "haa" <<  endl;
     cout << "preorder: ";
-
     BinaryTree::preorder(nodePtr);
-    //cout << "leftNode: " << nodePtr->left->val << " right: " << nodePtr->right->val << endl;
-    //vecint vecstaticarr = {};
-    //BinaryTree::orderArr = &vecstaticarr;
     printArr(BinaryTree::preOrderArr);
+    
     cout << "inOrder: ";
     BinaryTree::inorder(nodePtr);
-    printArr(BinaryTree::inOrderArr);
-    //printArr(vecResult);
-    /*NodeElem* currentPtr = nodePtr;
-    cout << "###############" << endl;
-    while(currentPtr){
-        cout << currentPtr->val << endl;
-        currentPtr = currentPtr->left;
-    }*/
+    printArr(BinaryTree::inOrderArr)
+    
+    vecint preorderArr = {0, 1, 3, 7, 8, 4, 9, 2, 5, 6};
+    vecint inorderArr = {7, 3, 8, 1, 9, 4, 0, 5, 2, 6};
+    size_t len = preorderArr.size();
+
+    //build binary tree by preorder and inorder
+    NodeElem* nodeAfterPtr = BinaryTree::buildByOrder(&(preorderArr[0]), &(preorderArr[len-1]), &(inorderArr[0]), &(inorderArr[len-1]));
+    BinaryTree::preorder(nodeAfterPtr);
+    printArr(BinaryTree::preOrderArr);
+
     return 0;
 }
 
