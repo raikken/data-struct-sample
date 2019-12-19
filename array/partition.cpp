@@ -77,7 +77,7 @@ vecint Array::findMiniList(vecint& vecarr,int nth){
     return vecresult;
 }
 
-
+//quick-sort recursive
 void Array::quickSort(vecint& vecarr, int start, int end, int pivotIndex) {
 
     int realPivotIndex = Array::partition(vecarr, start, end, pivotIndex);
@@ -92,12 +92,13 @@ void Array::quickSort(vecint& vecarr, int start, int end, int pivotIndex) {
 }
 
 
+//quick-sort non-recursive
 void Array::quickSort(vecint& vecarr) {
     int len  = vecarr.size();
     if (len < 2) {
         return ;
     }
-
+    //non-recursive by using stack to store every result after partition
     stack<int> stackList;
     int start = 0;
     int end = vecarr.size() - 1;
