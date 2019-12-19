@@ -5,8 +5,13 @@
 * @date 2019-11-16 17:17:29
 * @brief
 **/
+
+#ifndef BASEMETHOD_H__
+#define BASEMETHOD_H__
+
 #include<iostream>
 #include<vector>
+#include<stack>
 #include<string>
 #include<algorithm>
 using namespace std;
@@ -24,4 +29,4 @@ void heapify(vecint& vecarr, int topIndex);
 
 vecint slice(vecint* vecarr, int a, int b);
 
-
+#endif

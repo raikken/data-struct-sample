@@ -92,3 +92,37 @@ void Array::quickSort(vecint& vecarr, int start, int end, int pivotIndex) {
 }
 
 
+void Array::quickSort(vecint& vecarr) {
+    int len  = vecarr.size();
+    if (len < 2) {
+        return ;
+    }
+
+    stack<int> stackList;
+    int start = 0;
+    int end = vecarr.size() - 1;
+
+    stackList.push(start);
+    stackList.push(end);
+
+    while (!stackList.empty()) {
+        end = stackList.top();
+        stackList.pop();
+        start = stackList.top();
+        stackList.pop();
+
+        int realPivotIndex = Array::partition(vecarr, start, end, start);
+
+        if (start + 1 < realPivotIndex) {
+            stackList.push(start);
+            stackList.push(realPivotIndex-1);
+        }
+
+        if (realPivotIndex + 1 < end) {
+            stackList.push(realPivotIndex+1);
+            stackList.push(end);
+        }
+    }
+}
+
+

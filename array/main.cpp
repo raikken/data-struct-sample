@@ -44,5 +44,12 @@ int main(){
     Array::quickSort(vecarr2, 0, 7, 0);
     cout << "quickQuick: ";
     printArr(&vecarr2);
+    
+    
+    vecint vecarr3 = {3, 2, 4, 7, 6, 5, 1};
+    Array::quickSort(vecarr3);
+    cout << "quickSort: ";
+    printArr(&vecarr3);
+    
     return 0;
 }
