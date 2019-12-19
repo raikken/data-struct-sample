@@ -38,5 +38,11 @@ int main(){
     vecint vecMergeResultArr = Array::mergeSort(vecarr);
     cout << "after merge result arr: " << endl;
     printArr(&vecMergeResultArr);
+    
+    
+    vecint vecarr2 = {3,2,4,7,6,5,1};
+    Array::quickSort(vecarr2, 0, 7, 0);
+    cout << "quickQuick: ";
+    printArr(&vecarr2);
     return 0;
 }

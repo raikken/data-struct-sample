@@ -78,3 +78,17 @@ vecint Array::findMiniList(vecint& vecarr,int nth){
 }
 
 
+void Array::quickSort(vecint& vecarr, int start, int end, int pivotIndex) {
+
+    int realPivotIndex = Array::partition(vecarr, start, end, pivotIndex);
+
+    if(start + 1 < realPivotIndex) {
+        Array::quickSort(vecarr, start, realPivotIndex-1, start);
+    }
+
+    if (realPivotIndex + 1 < end) {
+        Array::quickSort(vecarr, realPivotIndex+1, end, realPivotIndex+1);
+    }
+}
+
+
