@@ -14,6 +14,7 @@ class Array{
 public:
     //partation
     static int partition(vecint& vecarr, int start, int end, int midIndex);
+    static int partition(vecint& vecarr, int start, int end);
     static vecint findMiniList(vecint& vecarr,int nth);
     static void quickSort(vecint& vecarr, int start, int end, int pivotIndex);
     static void quickSort(vecint& vecarr);

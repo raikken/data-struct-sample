@@ -8,7 +8,7 @@
 #include "array_header.h"
 
 
-void swap(int a, int b, vecint* vecintptr){
+void swap(vecint* vecintptr, int a, int b){
     if (a == b){
         return ;
     }

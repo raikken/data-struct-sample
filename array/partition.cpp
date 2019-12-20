@@ -8,6 +8,28 @@
 #include "array_header.h"
 
 
+int Array::partition(vecint& vecarr, int start, int end){
+    //record the last index in left zone
+    int vecarrLen = vecarr.size();
+    if(start < 0  ||  end >= vecarrLen) {
+
+    }
+    int k = start;
+    int pivotIndex = end;
+    for(int i = start; i < end; i++) {
+        if(vecarr[i] <= vecarr[pivotIndex] ){
+            if(i != k){
+                swap(&vecarr, i, k);
+            }
+            k++;
+        }
+    }
+    swap(&vecarr, k, end);
+    return k;
+}
+
+
+
 int Array::partition(vecint& vecarr, int start, int end, int pivotIndex){
     if(!vecarr.size()) {
         return 0;
@@ -77,7 +99,7 @@ vecint Array::findMiniList(vecint& vecarr,int nth){
     return vecresult;
 }
 
-//quick-sort recursive
+
 void Array::quickSort(vecint& vecarr, int start, int end, int pivotIndex) {
 
     int realPivotIndex = Array::partition(vecarr, start, end, pivotIndex);
@@ -92,13 +114,12 @@ void Array::quickSort(vecint& vecarr, int start, int end, int pivotIndex) {
 }
 
 
-//quick-sort non-recursive
 void Array::quickSort(vecint& vecarr) {
     int len  = vecarr.size();
     if (len < 2) {
         return ;
     }
-    //non-recursive by using stack to store every result after partition
+
     stack<int> stackList;
     int start = 0;
     int end = vecarr.size() - 1;

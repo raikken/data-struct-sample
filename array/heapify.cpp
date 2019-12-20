@@ -23,7 +23,7 @@ void heapify(vecint& vecarr, int len, int topIndex){
 
     if (tmpIndex != topIndex){
         heapify(vecarr, len, tmpIndex);
-        swap(tmpIndex, topIndex, &vecarr);
+        swap(&vecarr, tmpIndex, topIndex);
     }
 }
 

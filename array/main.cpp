@@ -50,6 +50,11 @@ int main(){
     Array::quickSort(vecarr3);
     cout << "quickSort: ";
     printArr(&vecarr3);
-    
+
+    vecint vecarr4 = {3,2,7,6,4,5};
+    int midIndex1 = Array::partition(vecarr4, 0, 5);
+    cout << "partition: ";
+    printArr(&vecarr4);
+
     return 0;
 }

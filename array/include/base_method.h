@@ -19,7 +19,7 @@ using vecint = vector<int>;
 using vecintiter = vector<int>::iterator;
 
 //交换数组中位置
-void swap(int a, int b, vecint* vecintptr);
+void swap(vecint* vecintptr, int a, int b);
 
 //打印数组
 void printArr(vecint* vecarr);
