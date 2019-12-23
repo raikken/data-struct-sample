@@ -56,5 +56,9 @@ int main(){
     cout << "partition: ";
     printArr(&vecarr4);
 
+    
+    vecint vecarr5 = {6, 7, 1, 2, 3, 4, 5};
+    int miniResult = Array::getMinValinSomeOrderArr(vecarr5);
+    cout << "getMinValinSomeOrderArr_result: " <<  miniResult << endl;
     return 0;
 }

@@ -12,7 +12,7 @@
 #include "base_method.h"
 class Array{
 public:
-    //partation
+    //partition
     static int partition(vecint& vecarr, int start, int end, int midIndex);
     static int partition(vecint& vecarr, int start, int end);
     static vecint findMiniList(vecint& vecarr,int nth);
@@ -30,6 +30,10 @@ public:
     //merge
     static vecint mergeSort(vecint& vecarr);
 
+
+
+    //dichotomy
+    static int getMinValinSomeOrderArr(vecint& vecarr);
 
     //最大堆
     vecint minHeap;
