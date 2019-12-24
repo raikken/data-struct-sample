@@ -8,7 +8,11 @@
 #include "array_header.h"
 
 
-void heapify(vecint& vecarr, int len, int topIndex){
+/*
+ * @desc headpify 
+ * @example input-> {1,2,5,9,4,7};  output-> {7,2,1,5,9,4}
+ * */
+void Array::heapify(vecint& vecarr, int len, int topIndex){
     int leftNodeIndex = 2*topIndex + 1;
     int rightNodeIndex = 2*topIndex + 2;
     int tmpIndex = topIndex;
@@ -22,12 +26,17 @@ void heapify(vecint& vecarr, int len, int topIndex){
     }
 
     if (tmpIndex != topIndex){
-        heapify(vecarr, len, tmpIndex);
+        Array::heapify(vecarr, len, tmpIndex);
         swap(&vecarr, tmpIndex, topIndex);
     }
 }
 
-
+/*
+ * @desc build max heap
+ * @example input-> {1,2,5,9,4,7};  output-> {9,1,7,5,2,4}
+ * @prams vector<int>
+ * @return null
+ * */
 void Array::buildMaxHeap(vecint &vecarr){
     int len = vecarr.size(); 
     if (!len) {
@@ -35,11 +44,15 @@ void Array::buildMaxHeap(vecint &vecarr){
     }
 
     for(int i = len/2; i >= 0; i--) {
-        heapify(vecarr, len, i);
+        Array::heapify(vecarr, len, i);
     }
 }
 
 
+/*
+ * @desc for finding the median in the data stream, insert the num,  
+ * @example build the maxHeap and minHeap 
+ * */
 void Array::insertForHeap(int num){
     int minHeapLen = this->minHeap.size();
     int maxHeapLen = this->maxHeap.size();
@@ -72,6 +85,10 @@ void Array::insertForHeap(int num){
 }
 
 
+/*
+ * @desc for finding the median in the data stream,  
+ * @example  
+ * */
 double Array::findMedian(){
     int minHeapLen = this->minHeap.size();
     int maxHeapLen = this->maxHeap.size();

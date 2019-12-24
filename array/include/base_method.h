@@ -24,9 +24,6 @@ void swap(vecint* vecintptr, int a, int b);
 //打印数组
 void printArr(vecint* vecarr);
 
-//heapify
-void heapify(vecint& vecarr, int topIndex);
-
 vecint slice(vecint* vecarr, int a, int b);
 
 #endif

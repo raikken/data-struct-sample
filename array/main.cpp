@@ -20,8 +20,10 @@ int main(){
     int midIndex = Array::partition(vecarr1, 0, vecarr1.size(), 2);
     cout << "after partition: ";
     printArr(&vecarr1);
-    
-    
+
+    cout << "heapify: ";
+    Array::heapify(vecarr1, 6, 0);
+    printArr(&vecarr1);
     Array::buildMaxHeap(vecarr1);
     printArr(&vecarr1);
 
@@ -60,5 +62,11 @@ int main(){
     vecint vecarr5 = {6, 7, 1, 2, 3, 4, 5};
     int miniResult = Array::getMinValinSomeOrderArr(vecarr5);
     cout << "getMinValinSomeOrderArr_result: " <<  miniResult << endl;
+
+    
+    vecint vecarr6 = {1,2,3,3,3,3,4,5};
+    int nums = Array::getAppearNuminOrderArr(vecarr6, 3);
+    cout << "getAppearNuminOrderArr_result: " << nums << endl; 
+
     return 0;
 }

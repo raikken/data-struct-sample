@@ -19,6 +19,8 @@ public:
     static void quickSort(vecint& vecarr, int start, int end, int pivotIndex);
     static void quickSort(vecint& vecarr);
 
+    //heapify
+    static void heapify(vecint& vecarr, int len, int topIndex);
     //buildMaxHeap
     static void buildMaxHeap(vecint &vecarr);
     //insert for heap
@@ -34,6 +36,9 @@ public:
 
     //dichotomy
     static int getMinValinSomeOrderArr(vecint& vecarr);
+    static int getAppearNuminOrderArr(vecint& vecarr, int val);
+
+
 
     //最大堆
     vecint minHeap;
