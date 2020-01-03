@@ -8,6 +8,10 @@
 #include "array_header.h"
 
 
+/*
+ * @desc find the min "val" in an rotated ordered array
+ * @example input: vecarr->{4,5,0,1,2,3}: output-> 0
+ * */
 int Array::getMinValinSomeOrderArr(vecint& vecarr){
     int len = vecarr.size();
     if(len <= 2) {
