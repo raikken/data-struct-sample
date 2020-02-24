@@ -16,7 +16,7 @@ int main(){
     
     cout << "inOrder: ";
     BinaryTree::inorder(nodePtr);
-    printArr(BinaryTree::inOrderArr)
+    printArr(BinaryTree::inOrderArr);
     
     vecint preorderArr = {0, 1, 3, 7, 8, 4, 9, 2, 5, 6};
     vecint inorderArr = {7, 3, 8, 1, 9, 4, 0, 5, 2, 6};

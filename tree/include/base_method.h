@@ -11,6 +11,7 @@
 #include<iostream>
 #include<vector>
 #include<string>
+#include<cstring>
 #include<algorithm>
 #include<stdexcept>
 using namespace std;
@@ -22,8 +23,15 @@ void swap(int a, int b, vecint* vecintptr);
 
 //打印数组
 void printArr(vecint* vecarr);
+/*
+//heapify
+void heapify(vecint& vecarr, int topIndex);
+
+vecint slice(vecint* vecarr, int a, int b);
+*/
 
 vecint* arrayMerge(vecint* vecarr1, vecint* vecarr2);
+
 
 template<typename T>
 int findIndex(vector<T>* vecarr, T val){
@@ -42,5 +50,10 @@ int findIndex(vector<T>* vecarr, T val){
 
 
 int* findIndex(int* startIndex, int* endIndex, int val);
+
+
+//template<typename T>
+//int findIndex(vector<T>* vecarr, T val);
+//int findIndex(vecint* vecarr, int val);
 
 #endif
