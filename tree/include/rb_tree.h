@@ -46,9 +46,7 @@ class Node {
         node_ptr left;
         node_ptr right;
 
-        bool leafNode;
-
-        Node(Value value, RBTColor color, node_ptr parent, node_ptr left, node_ptr right, bool leafNode):value(value), color(color), parent(parent), left(left), right(right), leafNode(leafNode){};
+        Node(Value value, RBTColor color, node_ptr parent):value(value), color(color), parent(parent), left(left), right(right){};
 
         //判断该节点是否为红色节点
         bool isLeafNode();
@@ -59,13 +57,13 @@ class Node {
 
 template<typename Key, typename Value, typename KeyofValue>
 bool Node::isLeafNode(){
-    return this->color;
+    return this->color == BLACK && this->left == nullptr && this->right == nullptr;
 }
 
 //生成叶子节点
 template<typename Key, typename Value, typename KeyofValue>
 Node Node::getLeafNode(node_ptr parent){
-    return Node(NULL, BLACK, parent, nullptr, nullptr, true);
+    return Node(NULL, BLACK, parent);
 }
 
 
@@ -84,13 +82,14 @@ class RbTree {
         node_pointer root;
 
         RbTree() {
-            this->header = new Node<Key, Value, KeyofValue>();
-            this->header->left = header;
-            this->header->right = header;
+            Node header = Node::getLeafNode<Key, Value, KeyofValue>(nullptr);
+            Node root = Node::getLeafNode<Key, Value, KeyofValue>(header);
+
+            header->left = root;
+            header->right = root;
             
-            Node leafNode = Node(this->header);
-            this->root = &leafNode;
-            //this->header->parent = root;
+            this->root = &root;
+            this->header = &header;
         }
 
         //insert
