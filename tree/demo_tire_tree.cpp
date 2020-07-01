@@ -8,7 +8,7 @@
 
 #include "test_demo.h"
 
-void* testTireTree(){
+void testTireTree(){
 
     char* arrStr[] = {"zhangzhida", "zhangzhidaraikken", "zhangraikken", "zhangzhi", "zhanghaha", "zhang", "raikken"};
 
