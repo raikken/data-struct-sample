@@ -112,7 +112,7 @@ class RbTree {
 
 
 template<typename Key, typename Value, typename Keyofvalue, typename Compare>
-void rbtree::insert(node_pointer nodeptr) {
+void RbTree::insert(node_pointer nodeptr) {
     node_pointer xptr = this->root;
     node_pointer xparentptr = this->header;
 
@@ -139,8 +139,8 @@ void rbtree::insert(node_pointer nodeptr) {
 
 //insert_rebalance
 template<typename Key, typename Value, typename Keyofvalue, typename Compare>
-void rbtree::insert_rebalance(node_pointer xptr){
-    nodeptr->color = RED;
+void RbTree::insert_rebalance(node_pointer xptr){
+    xptr->color = RED;
     //重平衡条件, 当前不为root, 并且父节点颜色为红
     while(xptr != this->root && xptr->parent->color == RED) {
         node_pointer xparentptr = xptr->parent;
@@ -189,13 +189,13 @@ void rbtree::insert_rebalance(node_pointer xptr){
                 rotate_left(xptr->parent->parent);
             }
         }
-        this->root->color = BLACK;
     }
+    this->root->color = BLACK;
 }
 
 
 template<typename key, typename value, typename keyofvalue, typename compare>
-void rbtree::rotate_left(node_pointer xptr){
+void RbTree::rotate_left(node_pointer xptr){
     node_pointer originrightptr = xptr->right;
     xptr->right = originrightptr->left;
 
@@ -215,7 +215,7 @@ void rbtree::rotate_left(node_pointer xptr){
 
 
 template<typename Key, typename Value, typename KeyofValue, typename Compare>
-void rbtree::rotate_right(node_pointer xptr){
+void RbTreee::rotate_right(node_pointer xptr){
     node_pointer originleftptr = xptr->left;
     //originleftptr->right 挂载至 xptr->left
     xptr->left = originleftptr->right;
@@ -236,7 +236,7 @@ void rbtree::rotate_right(node_pointer xptr){
 }
 
 template<typename Key, typename Value, typename KeyofValue, typename Compare>
-node_pointer check_node_exists(node_pointer xptr){
+node_pointer RbTree::check_node_exists(node_pointer xptr){
     node_pointer xcurptr = this->root;
 
     while(xcurptr){
@@ -254,7 +254,7 @@ node_pointer check_node_exists(node_pointer xptr){
 
 //获取值大于该节点的最小节点
 template<typename Key, typename Value, typename KeyofValue, typename Compare>
-node_pointer get_post_node(node_pointer xptr){
+node_pointer RbTree::get_post_node(node_pointer xptr){
     node_pointer xpostptr = xptr->right;
     if (!xpostptr) {
         return xpreptr;
@@ -269,7 +269,7 @@ node_pointer get_post_node(node_pointer xptr){
 
 //获取值小于该节点的最大节点
 template<typename Key, typename Value, typename KeyofValue, typename Compare>
-node_pointer get_pre_node(node_pointer xptr){
+node_pointer RbTree::get_pre_node(node_pointer xptr){
     node_pointer xpreptr = xptr->left;
     if (!xpreptr) {
         return xpreptr;
@@ -284,7 +284,7 @@ node_pointer get_pre_node(node_pointer xptr){
 
 //获取临近节点, 交换
 template<typename Key, typename Value, typename KeyofValue, typename Compare>
-node_pointer pre_delete_node(node_pointer xptr){
+node_pointer RbTree::pre_delete_node(node_pointer xptr){
 
     //获取节点到交换
     node_pointer xpostptr = this->get_post_node(xptr);
@@ -306,13 +306,14 @@ node_pointer pre_delete_node(node_pointer xptr){
 }
 
 //balance delete node
+//删除rebalance 本质上时 去掉 继任被删除节点 的节点 上的 双重黑色
 template<typename Key, typename Value, typename KeyofValue, typename Compare>
-void delete_rebalance(node_ptr xptr) {
+void RbTree::delete_rebalance(node_ptr xptr) {
 
     while(xptr != this->root || xptr->color == BLACK) {
         node_ptr xparentptr = xptr->parent;
         if (xparentptr->left == xptr) {
-           node_ptr xbrotherptr = xparentptr->right;
+            node_ptr xbrotherptr = xparentptr->right;
 
             //case1 兄弟节点为红色
             //父节点和兄弟节点调换颜色后 左旋
@@ -389,7 +390,7 @@ void delete_rebalance(node_ptr xptr) {
 
 
 template<typename Key, typename Value, typename KeyofValue, typename Compare>
-void rbtree::delete(node_pointer xptr){
+void RbTree::delete(node_pointer xptr){
     //pre_delete_node
     node_pointer xdeleteptr = pre_delete_node(xptr);
 
@@ -413,8 +414,12 @@ void rbtree::delete(node_pointer xptr){
 
     //当删除的节点颜色为黑色
     if (xdeleteptr->color == BLACK) {
-        rebalance_delete(xdeletechildptr, xdeleteptr->parent);
-    } 
+        if (xdeletechildptr->color == RED) {
+            xdeletechildptr->color = BLACK;
+        } else {
+            rebalance_delete(xdeletechildptr);
+        }
+    }
 }
 
 
