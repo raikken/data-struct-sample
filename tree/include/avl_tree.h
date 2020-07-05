@@ -73,8 +73,15 @@ class AvlTree {
 
         //删除
         void delete(node_pointer xptr);
+        
+        //获取大于该节点的最小节点
+        node_pointer get_next_node(node_pointer node);
 
-        void get_next_node(node_pointer node);
+        //获取小于该节点的最大节点
+        node_pointer get_post_node(node_pointer xptr);
+
+        //检测node是否存在
+        node_pointer check_node_exists(node_pointer node)
 }
 
 
