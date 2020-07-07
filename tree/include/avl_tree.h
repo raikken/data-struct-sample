@@ -65,14 +65,14 @@ class AvlTree {
         }
 
         //insert
-        void insert(node_pointer nodeptr);
+        void insert(node_pointer xrootptr, node_pointer nodeptr);
 
         void rotate_left(node_pointer xptr);
 
         void rotate_right(node_pointer xptr);
 
         //删除
-        void delete(node_pointer xptr);
+        void delete(node_pointer xrootptr, node_pointer xptr);
         
         //获取大于该节点的最小节点
         node_pointer get_next_node(node_pointer node);
