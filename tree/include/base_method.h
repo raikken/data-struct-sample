@@ -64,4 +64,44 @@ void printArr(vector<T>* vecarr){
     cout << tmp << endl;
 }
 
+template<typename T>
+void splice(vector<T>* arr1, vector<T>* arr2, int start, int len) {
+    int endIndex = start + len - 1;
+    if (arr1->size() < endIndex) {
+        return ;
+    }
+
+    for (int i = start; i < endIndex; i++) {
+        arr2->insert(arr1[i]);
+    }
+
+    arr1.earse(arr1->begin() + start, arr1->begin() + endIndex);
+}
+
+
+template<typename T>
+int findPos(vector<T>* arr1, T val){
+    int index = 0;
+    for (; index < arr1->size(); index++){
+        if (arr1->at(index) < val) {
+           index++;
+        }
+    }
+    return index;
+}
+
+template<typename Value, typename Compare>
+int findPos(vector<Value>* arr, Value value){
+    int index = 0;
+    
+    for(;index < arr->size();index++){
+        if (Compare(arr[i], value) < 0) {
+           index++;
+        }
+    }
+
+    return index;
+}
+
+
 #endif
