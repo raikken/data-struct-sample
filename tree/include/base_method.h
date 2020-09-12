@@ -95,7 +95,7 @@ int findPos(vector<Value>* arr, Value value){
     int index = 0;
     
     for(;index < arr->size();index++){
-        if (Compare(arr[i], value) < 0) {
+        if (Compare(arr[index], value) < 0) {
            index++;
         }
     }

@@ -11,9 +11,11 @@
 #include "binary_tree.h"
 #include "tire_tree.h"
 
-
 void testTireTree();
 
 void testBinaryTree();
+
+void testRbTree();
+
 #endif
 
