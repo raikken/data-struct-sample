@@ -24,18 +24,35 @@ public:
         return -1;
     }
 
-private:
+public:
     Key key;
     Value value;
 };
 
+template<typename T>
+struct MapConnCompator {
+    bool operator()(const T& objA, const T& objB);
+}
+
+template<typename T>
+bool MapConnCompator::operator()(const T& objA, const T& objB){
+    return objA.key > objB;
+}
+
+
+
+
 void testRbTree(){
-    int int1 = 1;
-    int int2 = 2;
-    int int3 = 3;
-    MapCon<int, string> map1(int1, "zhangzhida");
-    MapCon<int, string> map2(int2, "raikken");
-    MapCon<int, string> map3(int3, "zhang");
+    MapCon<int, string> map1(1, "zhangzhida");
+    MapCon<int, string> map2(2, "raikken");
+    MapCon<int, string> map3(3, "zhang");
+    MapCon<int, string> map4(4, "zhi");
+    MapCon<int, string> map5(5, "da");
+    MapCon<int, string> map6(6, "zhida");
+    MapCon<int, string> map7(7, "raikken.zhang");
+    MapCon<int, string> map8(8, "zhida.zhang");
+    MapCon<int, string> map9(9, "raikken.zhida");
+
 }
 
 
