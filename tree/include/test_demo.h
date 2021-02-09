@@ -10,6 +10,8 @@
 
 #include "binary_tree.h"
 #include "tire_tree.h"
+#include "rb_tree.hpp"
+#include "avl_tree.hpp"
 
 void testTireTree();
 
